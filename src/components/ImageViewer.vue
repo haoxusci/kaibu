@@ -151,7 +151,14 @@
                       @click="removeLayer(layer)"
                       >Remove</b-dropdown-item
                     >
+                    <b-dropdown-item
+                      aria-role="listitem"
+                      icon="close-circle"
+                      @click="removeLayer(layer)"
+                      >AddComment</b-dropdown-item
+                    >
                   </b-dropdown>
+                  <comment-box :title="layer.name"></comment-box> 
                 </template>
               </b-menu-item>
             </b-menu-list>
@@ -224,6 +231,7 @@ import { randId } from "../utils";
 import Gallery from "@/components/Gallery";
 import * as layerComponents from "@/components/layers";
 import * as widgetComponents from "@/components/widgets";
+import CommentBox from "@/components/CommentBox.vue";
 import { Projection } from "ol/proj";
 import { getCenter } from "ol/extent";
 import { mapState } from "vuex";
@@ -243,7 +251,7 @@ for (let c in widgetComponents) {
 }
 
 components["gallery"] = Gallery;
-
+components["comment-box"] = CommentBox;
 // You have to install sortable.js to use it:
 // 'npm install sortablejs'
 import Sortable from "sortablejs";
