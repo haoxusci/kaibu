@@ -429,7 +429,8 @@ export default {
     },
     keyHandler(event) {
       if (!this.selected || !this.visible) return;
-      if (event.code === "Backspace" || event.code === "Delete") {
+      //if (event.code === "Backspace" || event.code === "Delete")
+      if (event.code === "Delete") {
         this.deleteDraw();
       } else if (event.code === "KeyZ" && (event.metaKey || event.ctrlKey)) {
         this.undoDraw();
